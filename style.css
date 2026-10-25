@@ -1,7 +1,169 @@
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
     margin: 0;
+    padding: 25px;
+    font-family: Arial, sans-serif;
+    background: #f3f5f9;
+    color: #263238;
+}
+
+h1, h2 {
+    color: #ee0505;
+}
+
+h1 {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    background: #1e3a5f;
+    border-radius: 8px;
+}
+
+nav a {
+    padding: 10px 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: #35577e;
+}
+
+section {
+    margin-bottom: 30px;
     padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    padding: 20px;
+    background: #f3f7fc;
+    border-left: 4px solid #2f80ed;
+    border-radius: 8px;
+}
+
+.card p {
+    margin-bottom: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    border: none;
+    background: #1e3a5f;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #35577e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #edf2f7;
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 13px;
+    }
+}
+
+/* ===== FORM QUAN LY DAT PHONG ===== */
+#bookingForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+#bookingForm label {
+    align-self: end;
+    color: #334155;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#bookingForm input,
+#bookingForm select {
+    width: 100%;
+    min-width: 0;
+}
+
+#bookingForm button {
+    grid-column: 1 / -1;
+    padding: 12px;
+}
+
+#bookings {
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    #bookingForm {
+        grid-template-columns: 1fr;
+    }
+
+    #bookingForm button {
+        grid-column: auto;
+    }
 }

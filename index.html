@@ -1,56 +1,160 @@
-<!DOCTYPE html>
-    <html lang="vi">
-    <head>
-        <title>Quản lý khách sạn</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
-        <h1>QUẢN LÝ KHÁCH SẠN</h1>
-        
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý khách sạn</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>QUẢN LÝ KHÁCH SẠN</h1>
+
     <nav>
         <a href="#dashboard">Tổng quan</a>
         <a href="#rooms">Phòng</a>
         <a href="#customers">Khách hàng</a>
         <a href="#bookings">Đặt phòng</a>
     </nav>
-    
 
     <section id="dashboard">
-        <h2>Tổng quan khách sạn</h2>
-
-        <div>
-            <h3>Tổng số phòng</h3>
-            <p>20</p>
+        <h2>Tổng quan</h2>
+        <div class="stats">
+            <div class="card">
+                <h3>Tổng số phòng</h3>
+                <p id="total">0</p>
+            </div>
+            <div class="card">
+                <h3>Phòng trống</h3>
+                <p id="empty">0</p>
+            </div>
+            <div class="card">
+                <h3>Đang sử dụng</h3>
+                <p id="used">0</p>
+            </div>
         </div>
-        
-        <div>
-            <h3>Phòng trống</h3>
-            <p>12</p>
-        </div>
-
-        <div>
-            <h3>Đang sử dụng</h3>
-            <p>8</p>
-        </div>
-
-
     </section>
 
     <section id="rooms">
+        <h2>Quản lý phòng</h2>
 
+        <form id="roomForm">
+            <input id="number" placeholder="Số phòng" required>
+            <select id="type">
+                <option>Thường</option>
+                <option>VIP</option>
+                <option>VVIP</option>
+                <option>supper VIP</option>
+            </select>
+            <input id="price" type="number" placeholder="Giá phòng" min="1" required>
+            <button type="submit">Thêm phòng</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Số phòng</th>
+                    <th>Loại phòng</th>
+                    <th>Giá phòng</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="roomList"></tbody>
+        </table>
     </section>
 
+    
     <section id="customers">
+        <h2>Quản lý khách hàng</h2>
 
+        <form id="customerForm">
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Họ và tên khách hàng"
+                required
+            >
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="Số điện thoại"
+                required
+            >
+
+            <input
+                type="email"
+                id="customerEmail"
+                placeholder="Email"
+                required
+            >
+
+            <button type="submit" id="customerSubmit">
+                Thêm khách hàng
+            </button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+
+            <tbody id="customerList"></tbody>
+        </table>
     </section>
+
+
 
     <section id="bookings">
+        <h2>Quản lý đặt phòng</h2>
 
+        <form id="bookingForm">
+            <label for="bookingCustomer">Khách hàng</label>
+            <select id="bookingCustomer" required>
+                <option value="">-- Chọn khách hàng --</option>
+            </select>
+
+            <label for="bookingRoom">Phòng</label>
+            <select id="bookingRoom" required>
+                <option value="">-- Chọn phòng --</option>
+            </select>
+
+            <label for="checkIn">Ngày nhận phòng</label>
+            <input type="date" id="checkIn" required>
+
+            <label for="checkOut">Ngày trả phòng</label>
+            <input type="date" id="checkOut" required>
+
+            <button type="submit" id="bookingSubmit">Đặt phòng</button>
+        </form>
+
+        <h3>Danh sách đặt phòng</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Khách hàng</th>
+                    <th>Số phòng</th>
+                    <th>Ngày nhận</th>
+                    <th>Ngày trả</th>
+                    <th>Số ngày</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="bookingList"></tbody>
+        </table>
     </section>
 
-
-
-    </body>
-    </html>
+</body>
+</html>
